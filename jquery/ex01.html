@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <h1>jQuery(제이쿼리)</h1>
+    <h2>jQuery-1.0.0</h2>
+    <h2>jQuery-2.0.0</h2>
+    <h2>jQuery-3.0.0</h2>
+    
+
+    <!-- 다운로드 방식 -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <!-- cdn방식 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- javaScript 작업 -->
+    <script>
+        // function setColor(self,color){
+        //     self.style.color = color;
+        // }
+        // function resetColor(self,color){
+        //     self.style.color = color;
+        // }
+        // let mainTit = document.querySelector('h1');
+        // mainTit.addEventListener('mouseover',function(){
+        //     setColor(mainTit,'blue');
+        // })
+        // mainTit.addEventListener('mouseout',function(){
+        //     resetColor(mainTit,'lightblue');
+        // })
+
+        // document.getElementsByTagName('h2')[1].onmousemove = function(){
+        //     setColor(this,'red');
+        // }
+        // document.getElementsByTagName('h2')[1].onmouseout = function(){
+        //     resetColor(this,'pink');
+        // }
+    </script>
+    
+    <!-- jquery 작업 -->
+    <script>
+        $(function(){
+            $('h1').css('color','red');
+            $('h1').css('fontSize','50px');
+            $('h1').css('fontWeight','100');
+            $('h1').css('textAlign','center');
+            
+            // $('h1').css('color','red').css('fontSize','50px').css('fontWeight','100').css('textAlign','center');
+
+            // $('h1').css({
+            //     color:'red',
+            //     fontSize:'50px',
+            //     fontWeight:'100',
+            //     textAlign:'center',
+            // });
+        })
+    </script>
+</body>
+</html>

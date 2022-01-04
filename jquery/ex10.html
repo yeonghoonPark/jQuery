@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="홍길동">
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <img src="./images/img-fran.gif" alt="이미지1">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jQuery -->
+    <script>
+        $(function(){
+            console.log($('input').val());
+            $('input').val('이몽룡');
+
+
+            let linkUrl = $('a').attr('href');
+            console.log(linkUrl,typeof linkUrl);
+            linkUrl = linkUrl.replace('naver','google');
+            console.log(linkUrl,typeof linkUrl);
+
+            
+            $('a').text('google').attr({
+                href: linkUrl,
+                target:'_self',
+            });
+
+            let imgSrc = $('img').attr('src');
+            console.log(imgSrc);
+            let nowDate = new Date();
+            let nowHour = nowDate.getHours();
+            console.log(nowHour + '시');
+            if(nowHour>=20){
+                imgSrc = imgSrc.replace('fran','store');
+            }else{
+                imgSrc = imgSrc.replace('store','fran'); //파일형식이 달라서 이미지가 깨진다 개념만 알자
+            }
+            $('img').attr('src',imgSrc);
+
+
+
+
+        })
+    </script>
+</body>
+</html>

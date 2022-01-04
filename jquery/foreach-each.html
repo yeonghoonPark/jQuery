@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach(),each()</title>
+</head>
+<body>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+
+    <script>
+        // let list = document.querySelectorAll('li');
+
+        // for문을 활용하여 배열을 반복한 것, 공식이지만 귀찮아서 foreach를 사용, 아래참조
+        // for(let idx=0;idx<list.length;idx++){
+        //     console.log(list[idx]);
+        // }
+
+        //foreach를 활용하여 반복한 것, foreach는 대열객체(htmlcollection)에서는 사용이 안되고 대열(nodelist)에서만 사용할 수 있다.
+        // list.forEach(function(element,index){
+        //     console.log(index + '번의 값은' + element);
+        // })
+    </script>
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function(){
+            console.log($('li'));
+            $('li').each(function(index,element){
+                console.log(index,element);
+            })
+        })
+    </script>
+</body>
+</html>

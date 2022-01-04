@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <style>
+        .sec01::before{
+            content: '안녕하세요';
+            display: block;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h1>직접선택자</h1>
+    <section class="sec sec01" id="food01">
+        <h2>짜장면</h2>
+        <ul>
+            <li>짜장면</li>
+            <li>삼선짜장면</li>
+            <li>간짜장면</li>
+            <li>유니짜장면</li>
+        </ul>
+    </section>
+    <section class="sec sec02" id="food02">
+        <h2>짬뽕</h2>
+        <ul>
+            <li>짬뽕</li>
+            <li>삼선짬뽕</li>
+            <li>냉짬뽕</li>
+            <li>굴짬뽕</li>
+        </ul>
+    </section>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function(){
+            // 태그(요소) 선택자
+            $('h1').css({
+                textAlign:'center',
+            });
+            // 아이디 선택자
+            $('#food02').css({
+                color:'green',
+            });
+            // 클래스 선택자
+            $('.sec').css({
+                color:'#f00',
+            });
+            // 요소 선택자
+            $('li:first-child').css({
+                color:'#00f',
+            });
+            $('li:nth-child(2n)').css({
+                color:'cyan',
+            });
+            
+            // 가상요소 선택은 할 수 없다
+            $('.sec01::before').css({
+                'font-size':'100px',
+            });
+
+        })
+    </script>
+</body>
+</html>

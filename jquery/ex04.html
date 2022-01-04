@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탐색 선택자</title>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+    <ul>
+        <li>목록1(0)</li>
+        <li>목록2(1)</li>
+        <li>목록3(2)</li>
+        <li>목록4(3)</li>
+        <li>목록5(4)</li>
+        <li>목록6(5)</li>
+        <li>목록7(6)</li>
+        <li>목록8(7)</li>
+        <li>목록9(8)</li>
+        <li>목록10(9)</li>
+    </ul>
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(function(){
+            $('li').first().text('list1(0)');
+            
+            $('li').last().text('list10(9)');
+
+            $('li:odd').css({
+                color:'red',
+            })
+            $('li:even').css({
+                color:'green',
+            })
+            
+            
+            $('li:nth-child(5)').css({
+                fontSize:'36px',
+            }).text('list5(4)');
+            
+            // 위와 동일하지만 eq()를 사용하여 바로 선택
+            $('li').eq(4).css({
+                color:'magenta',
+            }).text('list5(인덱스넘버4 = eq(4))')
+
+            $('li').eq(7).nextAll().css({
+                color:'black',
+            })
+            
+            //위와 동일하지만 다른 형태
+            $('li:gt(7)').css({
+                fontSize:'40px'
+            })
+            
+            $('li:lt(4)').css({
+                color:'black',
+            })
+
+            
+            $('li').eq(0).nextUntil($('li').eq(5)).css({
+                backgroundColor:'blue',
+            })
+            // 위와 동일하지만 다른 형태
+            $('li').slice(1,5).css({
+                backgroundColor:'red',
+            })
+
+        })
+    </script>
+
+
+
+</body>
+</html>
