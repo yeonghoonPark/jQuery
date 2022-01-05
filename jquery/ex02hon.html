@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>직접선택자</title>
+    <style>
+        .sec::after{
+            content: '맛있습니다';
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>직접선택자</h1>
+    <section class="sec sec01" id="food01">
+        <h2>라면</h2>
+        <ul>
+            <li>삼양라면</li>
+            <li>감자면</li>
+            <li>멸치칼국수</li>
+            <li>너구리(순한맛)</li>
+        </ul>
+    </section>
+    <section class="sec sec02" id="food02">
+        <h2>짜장라면</h2>
+        <ul>
+            <li>짜파게티</li>
+            <li>짜왕</li>
+            <li>스파게티</li>
+            <li>짜장범벅</li>
+        </ul>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        jQuery(function(){
+            $('h1').css('textAlign','center');
+            $('#food02').css('color','green');
+            $('.sec').css('color','red');
+            $('.sec01 li:first-child').css('color','black');
+            $('.sec01 li:nth-child(3)').css('color','green');
+            
+
+        })
+    </script>
+</body>
+</html>

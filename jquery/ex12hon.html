@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxmodel position</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .par-box{
+            position: relative;
+            width: 500px;
+            height: 3000px;
+            margin: 100px auto;
+            border: 20px solid black;
+            padding: 20px;
+            background-color: red;
+            background-clip: content-box;
+            z-index: 5;
+        }
+        .child-box{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            right: 100px;
+            height: 260px;   
+            z-index: 10;         
+            background-color: green;
+        }
+        input{
+            position: fixed;
+            left: 700px;
+            top: 300px;
+            z-index: 50;
+        }
+        button{
+            position: fixed;
+            left: 700px;
+            top: 330px;
+            z-index: 50;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            $('button').click(function(){
+                let childBox = $('.child-box');
+                childBox.css({
+                    left:childBox.position().left + 100,
+                })
+            })
+            console.log($('.par-box').offset());
+            $('.par-box').offset({
+                top:300,
+                left:0
+            })
+
+            console.log($(window).scrollTop());
+
+            $('input').click(function(){
+                let scTop = $(window).scrollTop();
+                let oneScTop = scTop + 100
+                $(window).scrollTop(oneScTop);
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="인풋버튼">
+    <button type="button">버튼버튼</button>
+    <div class="par-box">
+        <div class="child-box">1</div>
+    </div>
+</body>
+</html>

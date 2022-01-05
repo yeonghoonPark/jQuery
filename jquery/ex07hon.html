@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li id="list01">box1</li>
+    <li><a>박스2</a></li>
+    <li class="list list03"><span>리스트3</span></li>
+    <li class="list list04">content4</li>
+    <li>list5</li>
+    <li>콘텐츠6</li>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            $('li:contains("box1")').css({
+                color:'red'
+            })
+            $('li').has('a').css({
+                fontSize:'64px'
+            })
+            $('li').filter('.list').css({
+                color:'green'
+            })
+            $('li').filter('.list04').css({
+                color:'yellow'
+            })
+            $('body').find('.list03').css({
+                color:'white'
+            })
+            $('li:not(:nth-child(1))').css({
+                display:'none'
+            })
+
+        })
+    </script>
+</body>
+</html>

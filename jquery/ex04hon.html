@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+        <li>목록6</li>
+        <li>목록7</li>
+        <li>목록8</li>
+        <li>목록9</li>
+        <li>목록10</li>
+    </ul>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            $('li').first().text('list1');
+            $('li').last().text('리스트10');
+            $('li').odd().css({
+                color:'red',
+            })
+            $('li').even().css({
+                color:'green',
+            }).text('list')
+            $('li').eq(0).css('fontSize','64px');
+        })
+    </script>
+</body>
+</html>

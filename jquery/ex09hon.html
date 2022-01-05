@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체조작 메서드</title>
+</head>
+<body>
+    <h1 class="main-tit">개체 속성 메서드</h1>
+    <div class="box" id="box01" style="color: red;">box</div>
+    <div class="box" id="box02"></div>
+</body>
+<script src="./js/jquery-3.6.0.js"></script>
+<script>
+    jQuery(function(){
+        $('#box02').html('<input type:"text" value:"10">');
+
+        console.log($('#box01').attr('class'));
+        $('#box01').attr('class','dox');
+        $('#box01').removeAttr('class','dox');
+        $('#box01').attr('style','color:green');
+        $('#box01').removeAttr('style','color:green');
+
+        $('#box02').addClass('bbox');
+        $('#box02').removeClass('box');
+        $('#box02').toggleClass('aaa','bbb');
+
+        $('div').click(function(){
+                $(this).toggleClass('active');
+            })
+    })
+</script>
+</html>

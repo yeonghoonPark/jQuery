@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <h2>jQuery1</h2>
+    <h2>jQuery2</h2>
+    <h2>jQuery3</h2>
+
+    <!-- <script>
+        function setColor(self,resultColor){
+            self.style.color = resultColor;
+        }
+        function resetColor(self,removeColor){
+            self.style.color = removeColor;
+        }
+
+        let _h1 = document.querySelector('h1');
+        
+        _h1.onmouseover = function(){
+            setColor(_h1,'red');
+        }
+        _h1.onmouseout = function(){
+            resetColor(this,'blue');
+        }
+
+        document.getElementsByTagName('h2')[0].onmouseover = function(){
+            setColor(this,'cyan');
+        }
+        document.getElementsByTagName('h2')[0].onmouseout = function(){
+            resetColor(this,'magenta');
+        }
+    </script> -->
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function(){
+            $('h1').css({
+                color:'red'
+            })
+            $('h1').css('fontSize','50px');
+        })
+    </script>
+
+
+</body>
+</html>
