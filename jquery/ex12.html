@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델 위치조작</title>
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        button,input{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 10;
+            width: 100px;
+            height: 30px;
+        }
+        input{
+            top: 60%;
+        }
+        .par-box{
+            position: relative;
+            width: 500px;
+            height: 3000px;
+            margin: 100px auto;
+            border: 20px solid #000;
+            padding: 20px;
+            background-color: #8b0000;
+            background-clip: content-box;
+            z-index: 1;
+        }
+        .child-box{
+            position: absolute;
+            left: 100px;
+            right: 100px;
+            top: 100px;
+            height: 260px;
+            background-color: #00008b;
+
+        }
+    </style> 
+    <!-- jQuery -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            $('button').click(function(){
+                let childBox = $('.child-box');
+                childBox.css({
+                    // 포지션위치 get = position().left|top / set은 불가능하다
+                    left:childBox.position().left + 100,
+                })
+            })
+
+            console.log($('.par-box').position().left); // position을 relative설정했기에 left좌표값은 0 으로 나온다
+            
+            // 문서로부터 위치 get/set = offset().left|top / 
+            console.log($('.par-box').offset().left);
+            console.log($('.par-box').offset().top);
+
+            $('.par-box').offset({ // offset()은 동시에 left와 top을 동시에 가지고 있기에 이렇게 기재
+                left:200,
+                top:0
+            })
+
+            // 윈도우스크롤 위치 get/set = scrollLeft(),scrollTop()
+            console.log($(window).scrollTop());
+            function scrTop(){
+                console.log($(window).scrollTop());
+            }
+            scrTop();
+
+            // $(window).scroll(scrTop); 아래와 동일
+            $(window).scroll(function(){
+                scrTop();
+            })
+
+            $('input').click(function(){
+                let winTop = $(window).scrollTop();
+                let newWinTop = winTop + 100;
+                $(window).scrollTop(newWinTop);
+                // $(window).scrollTop($(window).scrollTop() + 100);
+            })
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <button>click</button>
+    <input type="button" value="100px 스크롤">
+    <div class="par-box">
+        <div class="child-box"></div>
+    </div>
+</body>
+</html>
