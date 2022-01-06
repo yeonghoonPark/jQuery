@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ready,마우스 이벤트1</title>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // load() 되지도않고 사용하지 않는다
+        // jQuery(window).load(function(){
+        //     let imgWidth =  $('img').css('width');
+        //     console.log(imgWidth);
+        // })
+        // ready()
+        
+        
+        jQuery(document).ready(function(){
+            let imgWidth = $('img').width();
+            console.log(imgWidth);
+        
+            // 클릭 이벤트 / 이미지 변경 및 대체이미지 변경
+            // $('img').click(function(){
+            //     alert('이미지가 변경 될 예정입니다');
+            //     $('img').attr({
+            //         'src':'./images/img-store.jpg',
+            //         'alt':'이미지2'
+            //     });
+            // });
+            
+            // 더블클릭 이벤트 / 에트리뷰트 값을 비우는 방법
+            // $('img').dblclick(function(){
+            //     alert('이미지가 삭제 될 예정입니다');
+            //     $('img').attr({
+            //         src:'',
+            //         alt:'',
+            //     });
+            // })
+        
+            // 마우스다운 = 클릭 눌렀을 시점
+            // $('img').mousedown(function(){
+            //     $('img').attr({
+            //         'src':'./images/img-store.jpg',
+            //         'alt':'이미지2'
+            //     });
+            // });
+
+            // 마우스업 = 클릭 놓을 시점
+            // $('img').mouseup(function(){
+            //     $('img').attr({
+            //         'src':'./images/img-fran.gif',
+            //         'alt':'이미지1'
+            //     });
+            // });
+        
+            // 마우스오버
+            $('img').mouseover(function(){
+                $('img').attr({
+                    'src':'./images/img-store.jpg',
+                    'alt':'이미지2'
+                });
+            });
+            
+            // 마우스아웃
+            $('img').mouseout(function(){
+                $('img').attr({
+                    'src':'./images/img-fran.gif',
+                    'alt':'이미지1'
+                });
+            });
+
+
+
+
+        
+        
+        })
+       
+        
+
+
+    </script>
+</head>
+<body>
+    <img src="./images/img-fran.gif" alt="이미지1">
+</body>
+</html>

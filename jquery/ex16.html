@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 메서드 / 이벤트 등록 메서드</title>
+    <style>
+        input{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 300px;
+            height: 100px;
+            font-weight: 900;
+            font-size: 64px;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            $('#btn').wrap('<div/>');
+            $('div').css({
+                height:'3000px',
+                border:'10px solid #f00',
+            })
+            $('#btn').val('올라오던지 포커스하던지').css({
+                fontSize:'24px',
+            });
+
+            // 이벤트 메서드 사용 , 이것보단 아래의 on을 사용하는게 좋다
+            // $('#btn').mouseover(function(){
+            //     $(this).parent().css({
+            //         'background-color':'red',
+            //     })
+            // }).focus(function(){
+            //     $(this).parent().css({
+            //         'background-color':'red',
+            //     })
+            // })
+
+            // 이벤트 등록 메서드 사용
+            $('#btn').on({
+                'mouseover focusin':function(){
+                    $(this).parent().css({
+                        backgroundColor:'red',
+                    })
+                },
+                'mouseout focusout':function(){
+                    $(this).parent().css({
+                        backgroundColor:'white',
+                    })
+                },
+            })
+
+            // 이벤트 해제
+            // $('#btn').off('focusin'); 
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="올라와" id="btn">
+</body>
+</html>

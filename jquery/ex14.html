@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element의 삭제,복제,부모 삽입</title>
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        div{
+            border: 1px solid black;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            // 요소 삭제 = 선택요소.remove(); / 선택요소.empty(); / 선택요소.unwrap();
+            // 선택한 요소 삭제
+            $('.box03').remove();
+            
+            // 선택한 요소의 자식요소 삭제
+            $('.box02').empty();
+             // $('.box02').children().remove(); // 선택자의 자식들을 삭제로도 할 수 있다
+            
+             // 선택한 요소의 부모요소만 삭제
+            $('#last').unwrap();
+
+            $('.box02').after('<div/>');
+            $('body').prepend('<div/>');
+            $('#last').removeAttr('id');
+
+            // 요소의 복제 = 선택요소.clone()
+            let cloneObj = $('p').clone();
+            $('p').remove();
+            $('div').first().prepend(cloneObj); // div중 첫번째의 안에 cloneObject를 넣자
+            
+            // $('div.box02').first().prepend(cloneObj); 일회용인지 적용되지 않는다
+            // $('div').last().prepend(cloneObj);
+            cloneObj = $('div').first().children().clone();
+            $('div.box02').prepend(cloneObj);
+            cloneObj = $('div.box02').children().clone();
+            $('div').last().prepend(cloneObj);
+
+            $('div').removeClass().addClass('box');
+
+            // 부모 삽입 = wrapAll(); / wrap();
+            $('.box').wrapAll('<section/>'); // 공통 부모
+            $('.box').wrap('<h2/>'); // 각각의 부모
+            $('section').wrapInner('<article/>'); // 자식요소의 부모
+
+            // 변경 = replaceWith()
+            let secObj = $('section').children().clone();
+            $('section').replaceWith('<header/>'); // 바로 사용하니 자식들이 다 삭제, 위에서 복제후 아래에서 삽입
+            $('header').prepend(secObj);
+        })
+    </script>
+</head>
+<body>
+    <div class="box01">
+        <p>1-1</p>
+        <p>1-2</p>
+        <p id="last">1-3</p>
+    </div>
+    <div class="box02">
+        <p>2-1</p>
+        <p>2-2</p>
+        <p>2-3</p>
+    </div>
+    <div class="box03">
+        <p>3-1</p>
+        <p>3-2</p>
+        <p>3-3</p>
+    </div>
+</body>
+</html>

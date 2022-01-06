@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        .btn,.box{
+            display: inline-block;
+            width: 150px;
+            height: 80px;
+            margin: 20px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            let tri01 = document.getElementById('btn01');
+            let tri02 = document.getElementById('btn02');
+            let tri03 = document.getElementById('btn03');
+
+            // js 방식 <2>
+            tri02.onclick = function(){
+                $('#box02').css({
+                    fontSize:'24px',
+                })
+            }
+            
+            // js 방식 <3> , 익명함수로 기입하는 방식, 이 방식은 removeEventListener();를 사용할 수 없다
+            // tri03.addEventListener('click',function(){
+            //     $('#box03').css({
+            //         fontSize:'24px',
+            //     })
+            // })
+            
+            // js 방식 <3> , 기명함수로 기입하는 방식
+            function btn03Event(){
+                $('#box03').css({
+                    fontSize:'24px',
+                })
+            }
+
+            // jQuery 방식
+            $('#btn04').click(function(){
+                $('#box04').css({
+                    fontSize:'24px',
+                })
+            })
+            
+            $('#btn05').on('click',function(){
+
+            }) 
+            // 위가 js에서  addEventListener();와 같은 맥락이고 아래처럼 여러개를 넣어 사용 할 수 있다.
+            $('#btn05').on({
+                'click':function(){
+                    $(this).css({
+                        fontSize:'24px',
+                    })
+                },
+                'dblclick':function(){
+                    $(this).css({
+                        fontSize:'16px'
+                    })
+                },   
+                'mouseover':function(){
+                    $('#box05').css({
+                        fontSize:'24px',
+                    })
+                },
+                'mouseout':function(){
+                    $('#box05').css({
+                        fontSize:'16px',
+                        backgroundColor:'red',
+                        
+                    })
+                }    
+            })
+
+            // js <1> 이벤트 제거 / 에트리뷰트
+            tri01.removeAttribute('onclick');
+            // js <2> 이벤트 제거 / 프로퍼티를 제거하는 방식
+            tri02.onclick=null;
+            // js <3> 이벤트 제거 / removeEventListener('트리거',기명함수);
+            tri03.removeEventListener('click',btn03Event);
+            
+            // jq 이벤트 제거
+            $('#btn04').off('click'); // ()안에 설정한 이벤트만 삭제되었다.
+            $('#btn05').off(); // ()안에 값을 따로 정하지 않으니 이벤트가 다 삭제되었다.
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <!-- js 인라인 방식 <1>-->
+    <input type="button" value="클릭1" class="btn" id="btn01" onclick="
+        $('#box01').css({
+            'font-size':'24px',
+        })
+    ">
+    <input type="button" value="클릭2" class="btn" id="btn02">
+    <input type="button" value="클릭3" class="btn" id="btn03">
+    <input type="button" value="클릭4" class="btn" id="btn04">
+    <input type="button" value="클릭5" class="btn" id="btn05">
+    <br>
+    <div class="box" id="box01">박스1</div>
+    <div class="box" id="box02">박스2</div>
+    <div class="box" id="box03">박스3</div>
+    <div class="box" id="box04">박스4</div>
+    <div class="box" id="box05">박스5</div>
+</body>
+</html>

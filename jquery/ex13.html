@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element(요소)의 삽입</title>
+    <!-- style -->
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        .btn{
+            width: 45px;
+            height: 45px;
+            margin: 100px auto;
+            border: 5px solid black;
+            padding: 5px;
+
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+        }
+        /* .btn::before,.btn::after{
+            content: '';
+            display: block;
+        } */
+        #line{
+            height: 5px;
+            border-radius: 2.5px;
+            background-color: #000;
+        }
+        
+    </style>
+    <!-- jQuery -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            // 요소 삽입 = 선택요소.brfore('새요소') / 선택요소.after('새요소') = css와는 다르게 형과 동생의 요소 (css는 자식의 개념)
+            $('#line').before('<div></div>');
+            $('#line').after('<div/>'); // 아래의 형식으로 파이프형태로 가능.
+            // $('#line').before('<div></div>').after('<div></div>');
+
+            $('.btn>div').addClass('line');
+            let lineHeight = $('#line').css('height');
+            let lineRadius = $('#line').css('border-radius');
+            let lineBgColor = $('#line').css('backgroundColor');
+            $('.line').css({
+                height:lineHeight,
+                borderRadius:lineRadius,
+                backgroundColor:lineBgColor
+            })
+
+            // 자식요소 삽입 = 선택요소.prepend('새요소') / 선택요소.append('새요소') = css의 before와 after와 같은 개념으로 추정
+            $('.btn').prepend('<div/>');
+            $('.btn').append('<div/>');
+            // $('.btn').prepend('<div/>').append('<div/>');
+
+            $('.btn').children().first().addClass('first-line'); // .btn의 자식들 중에서 첫번째에 addClass
+            $('.btn').children().last().addClass('last-line'); // .btn의 자식들 중에서 마지막에 addClass
+            $('.first-line,.last-line').css({
+                display:'none',
+            })
+            
+            
+
+        })
+    </script>
+</head>
+<body>
+    <div class="btn">
+        <!-- 요소삽입 -->
+        <div id="line"></div>
+        <!-- 요소삽입 -->
+    </div>
+</body>
+</html>
