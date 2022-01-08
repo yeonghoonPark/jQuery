@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <!-- style -->
+    <style>
+        *{box-sizing: border-box;padding: 0;margin: 0;}
+        input,.box{
+            display: inline-block;
+            width: 150px;
+            height: 80px;
+            margin: 20px;
+            border: 2px solid darkred;
+            text-align: center;
+            line-height: 80px;
+        }
+        input{
+            cursor: pointer;
+        }
+    </style>
+   
+    
+    <!-- jQuery -->
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            let _btn02 = document.getElementById('btn02');
+            let _btn03 = document.getElementById('btn03');
+            let _btn04 = document.getElementById('btn04');
+           
+            _btn02.addEventListener('click',function(){
+                $('.box02').css({
+                    color:'red',
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼1" class="btn" id="btn01" onclick="
+        $('.box01').css({
+            'background-color':'red',
+        })
+    ">
+    <input type="button" value="버튼2" class="btn" id="btn02">
+    <input type="button" value="버튼3" class="btn" id="btn03">
+    <input type="button" value="버튼4" class="btn" id="btn04">
+    <input type="button" value="버튼5" class="btn" id="btn05">
+    <br>
+    <div class="box box01">박스1</div>
+    <div class="box box02" id="box02">박스2</div>
+    <div class="box box03">박스3</div>
+    <div class="box box04">박스4</div>
+    <div class="box box05">박스5</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소를 삭제하는 법</title>
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        div{
+            border: 1px solid #000;
+        }
+    </style>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            $('.div01').remove();
+            $('.div02').empty();
+            
+            let div03P3 = $('.div03').children().last();
+            // div03P3.unwrap();
+            
+            div03P3.attr('id','lastP');
+            div03P3.removeAttr('id');
+
+            let divClone = $('.div03').clone();
+            
+            $('.div03').after(divClone);
+            divClone.attr('id','divClone');
+
+            $('#divClone').wrapAll('<section/>');
+            $('.div03').wrap('<div/>');
+            $('section').wrapInner('<div/>');
+        
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="div01">
+        <p>1-1</p>
+        <p>1-2</p>
+        <p>1-3</p>
+    </div>
+    <div class="div02">
+        <p>2-1</p>
+        <p>2-2</p>
+        <p>2-3</p>
+    </div>
+    <div class="div03">
+        <p>3-1</p>
+        <p>3-2</p>
+        <p>3-3</p>
+    </div>
+</body>
+</html>
