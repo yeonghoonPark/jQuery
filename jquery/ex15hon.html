@@ -30,12 +30,38 @@
             let _btn02 = document.getElementById('btn02');
             let _btn03 = document.getElementById('btn03');
             let _btn04 = document.getElementById('btn04');
+            let _btn05 = document.getElementById('btn05');
            
             _btn02.addEventListener('click',function(){
                 $('.box02').css({
                     color:'red',
                 })
             })
+
+            function btnEvent05(){
+                $('.box05').css({
+                    backgroundColor:'black',
+                })
+            }
+            _btn05.addEventListener('click',btnEvent05);
+
+            $('#btn03').click(function(){
+                $('.box03').css({
+                    backgroundColor:'green',
+                })
+            })
+            $('#btn04').on('click',function(){
+                $('.box04').css({
+                    backgroundColor:'magenta',
+                })
+            })
+
+            $('#btn01').attr('onclick','');
+
+            $('#btn04').off();
+
+            _btn05.removeEventListener('click',btnEvent05);
+
         })
     </script>
 </head>

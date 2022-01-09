@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event method / event resistration method</title>
+    <!-- style -->
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        /* body{
+            height: 2000px;
+            border: 10px solid darkred;
+            margin: 50px;
+        } */
+        input{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 200px;
+            height: 50px;
+        }
+
+    </style>
+    
+    <!-- jQuery -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            $('input').wrap('<section/>');
+            $('section').css({
+                height:'2000px',
+                border:'20px solid darkred',
+                margin:'50px',
+            })
+
+            // $('#focus').mouseover(function(){
+            //     $(this).parent().css({
+            //         backgroundColor:'magenta',
+            //     })
+            // })
+            // $('#focus').mouseout(function(){
+            //     $(this).parent().css({
+            //         backgroundColor:'white',
+            //     })
+            // })
+            // $('#focus').focusin(function(){
+            //     $(this).parent().css({
+            //         backgroundColor:'green',
+            //     })
+            // })
+            // $('#focus').focusout(function(){
+            //     $(this).parent().css({
+            //         backgroundColor:'black',
+            //     })
+            // })
+            
+            $('#focus').on({
+                'focusin mouseover':function(){
+                    $(this).parent().css({
+                        backgroundColor:'red',
+                        color:'red',
+                    })
+                },
+                'focusout mouseout':function(){
+                    $(this).parent().css({
+                        backgroundColor:'black',
+                    })
+                }
+            })
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="포커스" id="focus">
+</body>
+</html>

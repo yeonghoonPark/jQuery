@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ready,mouse event</title>
+    <!-- style -->
+    <style>
+
+    </style>
+
+    <!-- jQuery -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+            let imgWidth = $('img').width();
+            console.log(imgWidth);
+            
+            $('img').on('click',function(){
+                alert('이미지가 변경 됩니다');
+                $('img').attr({
+                    'src':'./images/img-store.jpg',
+                    'alt':'이미지스토어',
+                })
+            })
+            $('#btn').on('dblclick',function(){
+                alert('이미지가 삭제 됩니다');
+                $('img').attr({
+                    'src':'',
+                    'alt':'',
+                })
+            })
+
+            
+                
+            
+        })
+    </script>
+</head>
+<body>
+    <img src="./images/img-fran.gif" alt="이미지프랜">
+    <button type="button" id="btn">삭제 버튼(더블클릭 하세요)</button>
+</body>
+</html>
