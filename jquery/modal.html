@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:red;
+        }
+        .modal{
+            width:600px;
+            height:400px;
+            margin:100px auto;
+            border:1px solid black;
+            padding:20px;
+            border-radius:20px;
+            background-color:#fff;
+            position:relative;
+        }
+        .btn-close{
+            position:absolute;
+            right:20px;
+            top:20px;
+            width:40px;
+            height:40px;
+        }
+        .btn-close::before,.btn-close::after{
+            content:'';
+            display:block;            
+            height:4px;
+            background-color:#000;
+            position:absolute;
+            left:0;
+            right:0;
+            top:50%;
+            transform:rotate(45deg);
+        }
+        .btn-close::after{
+            transform:rotate(-45deg);
+        }
+    </style>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // $('.btn-close').click(function(){
+            //     $('.modal').hide();
+            // })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="modal">
+            <div class="btn-close"></div>
+            <h2>모달창</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil maiores ut laboriosam cumque ullam facere ducimus assumenda labore dolorum accusantium vel dolorem adipisci totam dolores velit iste, laborum temporibus doloremque?
+            Ea dolorem quaerat itaque expedita ut eveniet, ipsa voluptatem cupiditate nesciunt eum? Odit aliquid voluptatum enim, suscipit illum voluptatibus fuga accusamus culpa exercitationem expedita maiores neque corrupti sequi porro eaque!
+            Dolorum, tenetur. Nulla cupiditate error necessitatibus officia nobis dolorum, facilis vitae fuga, qui amet eveniet harum, aut tempora ex nam laborum. Optio aperiam id architecto tempora voluptatum ratione in earum.
+            Obcaecati repudiandae tempora quae? Delectus, tempore maxime non quisquam illo ut esse facere? Et eligendi, impedit illum rem ea magnam esse ut quaerat nisi aut, eaque laborum debitis atque ratione?
+            Dolorem soluta impedit libero beatae voluptatum dignissimos explicabo tempora culpa ipsa perspiciatis. In eligendi, sint animi repellendus sit dolor qui nisi id tempore quis nesciunt, harum tempora quos, nobis corrupti!</p>
+        </div>
+    </div>
+
+    <script>
+        let modalWindow = document.querySelector('.modal');
+        let btnCloseWindow = document.querySelector('.btn-close');
+        console.log(modalWindow);
+        console.log(btnCloseWindow);
+        btnCloseWindow.addEventListener('click',function(){
+            modalWindow.style.display = 'none';
+        })
+    </script>
+
+</body>
+</html>

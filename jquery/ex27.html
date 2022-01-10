@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <style>
+        input{
+            margin: 10px;
+        }
+        .move-box{
+            width: 300px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: red;
+            transition: 0.3s;
+        }
+        .move-box2{
+            width: 300px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: darkgreen;
+            
+        }
+        .move-box3{
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: darkblue;
+            
+        }
+        .move-box.active{
+            margin-left: 1010px;
+        }
+        
+    </style>
+    <!-- jQuery -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+            // $('#btn01').click(function(){
+            //     $('.move-box').addClass('active');
+            // })
+            // $('#btn02').click(function(){
+            //     $('.move-box').removeClass('active');
+            // })
+            $('#btn03').click(function(){
+                $('.move-box').css('margin-left','1010px');
+            })
+            $('#btn04').click(function(){
+                $('.move-box').css({
+                    marginLeft:'10px',
+                })
+            })
+            $('#btn05').click(function(){
+                $('.move-box2').css('margin-left','1010px');
+            })
+            $('#btn06').click(function(){
+                $('.move-box2').css('margin-left','10px');
+            })
+            
+            //animation = animate({속성:속성값},시간,가속도,콜백)
+            $('#btn07').click(function(){
+                $('.move-box2').animate({
+                    'margin-left':'1010px',
+                    height:'300px',
+                },300);
+            })
+            $('#btn08').click(function(){
+                $('.move-box2').animate({
+                    marginLeft:'10px',
+                    height:'150px',
+                },800);
+            })
+
+            $('#btn09').click(function(){
+                move($('.move-box3'),'50px');
+            })
+            $('#btn10').click(function(){
+                move($('.move-box3'),'-50px');
+            })
+            function move(target,moveVal){
+                target.animate({
+                    marginLeft:moveVal,
+                },300);
+            }
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="오른쪽으로 1000px 이동" id="btn01">
+    <input type="button" value="왼쪽으로 1000px 이동" id="btn02">
+    <div class="move-box"></div>
+    <input type="button" value="오른쪽으로 1000px 이동" id="btn03">
+    <input type="button" value="왼쪽으로 1000px 이동" id="btn04">
+
+    <br><br><br><br><br>
+
+    <input type="button" value="오른쪽으로 1000px 이동" id="btn05">
+    <input type="button" value="왼쪽으로 1000px 이동" id="btn06">
+    <div class="move-box2"></div>
+    <input type="button" value="오른쪽으로 1000px 이동" id="btn07">
+    <input type="button" value="왼쪽으로 1000px 이동" id="btn08">
+
+    <br><br><br><br><br>
+
+    <input type="button" value="오른쪽으로 50px 이동" id="btn09">
+    <input type="button" value="왼쪽으로 50px 이동" id="btn10">
+    <div class="move-box3"></div>
+    
+    
+    
+    <!-- js -->
+    <!-- <script>
+        document.querySelector('#btn01').onclick = function(){
+            document.querySelector('.move-box').style.marginLeft = '1010px';
+        }
+        document.querySelector('#btn02').onclick = function(){
+            document.querySelector('.move-box').style.marginLeft = '10px';
+        }
+        document.querySelector('#btn03').onclick = function(){
+            document.querySelector('.move-box').classList.add('active');
+        }
+        document.querySelector('#btn04').onclick = function(){
+            document.querySelector('.move-box').classList.remove('active');
+        }
+    </script> -->
+</body>
+</html>

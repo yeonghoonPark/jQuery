@@ -38,17 +38,17 @@
             overflow:hidden;
         }
         .flex-box>div{
-            width: 582px;
+            width:582px;
             height:200px; 
             margin-bottom:12px;           
             background-color:rgba(0,0,0,0.1);
-            opacity: 0;
-
+            opacity:0;
+            
             font-weight:900;
             font-size:50px;
             text-align:center;
             line-height:200px;
-
+            
             transition:0.5s;
         }
         .flex-box>.box05,.flex-box>.box06{
@@ -61,34 +61,11 @@
             transform:translateX(100%);
         }
         .flex-box>div.active{
-            transform: translateX(0);
-            opacity: 1;
+            transform:translateX(0);
+            opacity:1;
         }
     </style>
-    <!-- <script src="./js/jquery-3.6.0.js"></script> -->
     
-    <script>
-        window.onload = function(){
-            // let box = $('div[class*="box0"]');
-            let flexBox = document.getElementsByClassName('flex-box');
-            let box = new Array();
-            let boxIdx = 0;
-            for(let idx=0;idx<flexBox.length;idx++){
-                box[boxIdx++] = flexBox[idx].children;
-            }
-
-            let 
-            
-
-            // let idx=0;
-            // let loadEvent = setInterval(function(){
-            //     $(box[idx++]).addClass('active');
-            //     if(idx>=box.length){
-            //         clearInterval(loadEvent);
-            //     }
-            // },300) 
-        }
-    </script>
 </head>
 <body>
     <section class="wrap">
@@ -163,5 +140,23 @@
             </div>
         </footer>
     </section>
+    <script>
+        
+        // let box = $('div[class*="box0"]');
+        let flexBox = document.getElementsByClassName('flex-box');
+        let box = new Array();
+        let boxIdx = 0;
+        for(let idx=0;idx<flexBox.length;idx++){
+            box[boxIdx++] = flexBox[idx].children;
+        }
+        
+
+        let loadEvent = setInterval(function(){
+            let loadEvent2 = setInterval(function(){
+                
+            }, 300);
+        }, 1800);
+        
+    </script>
 </body>
 </html>

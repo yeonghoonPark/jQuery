@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 메서드</title>
+    <style>
+        *{box-sizing: border-box;margin: 0;padding: 0;}
+        .container{
+            width: 800px;
+            margin: 20px auto;
+            border: 5px solid #000;
+            padding: 10px;
+
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+        .btn{
+            flex: 1;
+            font-weight: 700;
+            font-size: 32px;
+        }
+        .box{
+            width: 100%;
+            height: 300px;
+            background-color: darkred;
+        }
+    </style>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        jQuery(function(){
+            // toggle(시간,가속도,콜백), show(시간,가속도,콜백), hide(시간,가속도,콜백) () 는 선택사항이다
+            let btnToggle = $('#btn1-1');
+            let btnHide = $('#btn1-2');
+            let btnShow = $('#btn1-3');
+            let box1 = $('#box1');
+            btnToggle.on({
+                'click':function(){
+                    box1.toggle(function(){
+                        alert('토글 완료');
+                    });
+                },
+            })
+            btnHide.on({
+                'click':function(){
+                    box1.hide(function(){
+                        alert('감추기 완료');
+                    });
+                    
+                }
+            })
+            btnShow.on({
+                'click':function(){
+                    box1.show(function(){
+                        alert('보이기 완료');
+                    });
+                }
+            })
+       
+            // slideToggle(시간,가속도,콜백), slideUp(시간,가속도,콜백), slideDown(시간,가속도,콜백)
+            let btnSdTge = $('#btn2-1');
+            let btnSdUp = $('#btn2-2');
+            let btnSdDwn = $('#btn2-3');
+            let box2 = $('#box2');
+            btnSdTge.on({
+                'click':function(){
+                    box2.slideToggle(500,'linear',function(){
+                        console.log('슬라이드 토글 완료');
+                    })
+                }
+            })
+            btnSdUp.on({
+                'click':function(){
+                    box2.slideUp(500,'swing',function(){
+                        console.log('슬라이드 업 감추기 완료');
+                    })
+                }
+            })
+            btnSdDwn.on({
+                'click':function(){
+                    box2.slideDown(function(){
+                        console.log('슬라이드 다운 보이기 완료');
+                    })
+                }
+            })
+
+            // fadeToggle(시간,가속도,콜백), fadeOut(시간,가속도,콜백), fadeIn(시간,가속도,콜백), fadeTo(시간,투명도,콜백)
+            let btnFadTge = $('#btn3-1');
+            let btnFadOut = $('#btn3-2');
+            let btnFadIn = $('#btn3-3');
+            let btnFadTo = $('#btn3-4');
+            let box3 = $('#box3');
+            btnFadTge.on({
+                'click':function(){
+                    box3.fadeToggle(300);
+                }
+            })
+            btnFadOut.on({
+                'click':function(){
+                    box3.fadeOut(300);
+                }
+            })
+            btnFadIn.on({
+                'click':function(){
+                    box3.fadeIn(300);
+                }
+            })
+            btnFadTo.on({
+                'click':function(){
+                    box3.fadeTo(300,0.5);
+                }
+            })
+       
+       
+        })
+    </script>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <input type="button" value="toggle" id="btn1-1" class="btn">
+        <input type="button" value="hide" id="btn1-2" class="btn">
+        <input type="button" value="show" id="btn1-3" class="btn">
+        <div class="box" id="box1"></div>
+    </div>
+    <div class="container">
+        <input type="button" value="slideToogle" id="btn2-1" class="btn">
+        <input type="button" value="slideUp" id="btn2-2" class="btn">
+        <input type="button" value="slideDown" id="btn2-3" class="btn">
+        <div class="box" id="box2"></div>
+    </div>
+    <div class="container">
+        <input type="button" value="fadeToggle" id="btn3-1" class="btn">
+        <input type="button" value="fadeOut" id="btn3-2" class="btn">
+        <input type="button" value="fadeIn" id="btn3-3" class="btn">
+        <input type="button" value="fadeTo" id="btn3-4" class="btn">
+        <div class="box" id="box3"></div>
+    </div>
+</body>
+</html>
